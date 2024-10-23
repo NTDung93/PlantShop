@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:padding="25dp"
     android:fitsSystemWindows="true"
-    tools:context=".Login">
+    tools:context=".Activity.Login">
 
     <TextView
         android:layout_width="match_parent"
@@ -40,7 +40,8 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar
@@ -54,7 +55,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/login" />
+        android:backgroundTint="@color/green"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textColorLink="#45D068" />
 
     <TextView
         android:id="@+id/registerNow"

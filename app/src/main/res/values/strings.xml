@@ -8,4 +8,19 @@
     <string name="click_to_login">Click to login</string>
     <string name="click_to_register">Click to register</string>
     <string name="logout">Logout</string>
+    <string name="introTitle"><font color="#45D068">Green</font> your space \nwith our <font color="#45D068">plants</font></string>
+    <string name="introSubtitle">Get personalized recommendations\n Enjoy fast, free shipping</string>
+    <string name="let_s_get_started">Let\'s Get Started</string>
+    <string name="singin_if_has_account">Already have an account?<font color="#45D068"> Sign In</font></string>
+    <string name="search_here">Search here...</string>
+    <string name="plant_categories">Plant categories</string>
+    <string name="popular_plants">Popular plants</string>
+    <string name="explore">Explore</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="cart">Cart</string>
+    <string name="user">User</string>
+    <string name="welcome_to_plant_shop">Welcome to Plant Shop</string>
+    <string name="login_btn">Login</string>
+    <string name="logout_btn">Logout</string>
+    <string name="welcome">"Welcome, "</string>
 </resources>
