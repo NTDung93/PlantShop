@@ -14,6 +14,8 @@ import com.company.plantshop_nguyentiendung_se171710.databinding.ActivityCartBin
 
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+
 import vn.zalopay.sdk.Environment;
 import vn.zalopay.sdk.ZaloPayError;
 import vn.zalopay.sdk.ZaloPaySDK;
@@ -50,7 +52,7 @@ public class CartActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 double percentTax = 0.02;
-                double delivery = 10;
+                double delivery = 15000;
                 tax = Math.round((managmentCart.getTotalFee() * percentTax * 100.0)) / 100.0;
 
                 double total = Math.round((managmentCart.getTotalFee() + tax + delivery) * 100.0) / 100.0;
@@ -116,16 +118,21 @@ public class CartActivity extends BaseActivity {
 
     private void calculatorCart() {
         double percentTax = 0.02;
-        double delivery = 10;
-        tax = Math.round((managmentCart.getTotalFee() * percentTax * 100.0)) / 100.0;
+        double delivery = 15000;
 
+        // Calculate tax, total, and item total
+        tax = Math.round(managmentCart.getTotalFee() * percentTax * 100.0) / 100.0;
         double total = Math.round((managmentCart.getTotalFee() + tax + delivery) * 100.0) / 100.0;
-        double itemTotal = Math.round((managmentCart.getTotalFee() * 100.0)) / 100.0;
+        double itemTotal = Math.round(managmentCart.getTotalFee() * 100.0) / 100.0;
 
-        binding.totalFeeTxt.setText("$" + itemTotal);
-        binding.taxTxt.setText("$" + tax);
-        binding.deliveryTxt.setText("$" + delivery);
-        binding.totalTxt.setText("$" + total);
+        // Format numbers with dots as thousand separators
+        DecimalFormat formatter = new DecimalFormat("#,###");
+
+        // Set text views with formatted values
+        binding.totalFeeTxt.setText(formatter.format(itemTotal) + " VND");
+        binding.taxTxt.setText(formatter.format(tax) + " VND");
+        binding.deliveryTxt.setText(formatter.format(delivery) + " VND");
+        binding.totalTxt.setText(formatter.format(total) + " VND");
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.company.plantshop_nguyentiendung_se171710.Model.SliderItems;
 import com.company.plantshop_nguyentiendung_se171710.Utils.ManagmentCart;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ActivityProductDetailBinding;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ProductDetailActivity extends BaseActivity {
@@ -71,8 +72,11 @@ public class ProductDetailActivity extends BaseActivity {
 
     private void getBundles() {
         object = (ProductDomain) getIntent().getSerializableExtra("object");
+
+        DecimalFormat formatter = new DecimalFormat("#,###");
+
         binding.titleTxt.setText(object.getTitle());
-        binding.priceTxt.setText("$" + object.getPrice());
+        binding.priceTxt.setText(formatter.format(object.getPrice()) + " VND");
         binding.ratingBar.setRating((float) object.getRating());
         binding.ratingTxt.setText(object.getRating() + " Rating");
         binding.descriptionTxt.setText(object.getDescription());

@@ -15,6 +15,7 @@ import com.company.plantshop_nguyentiendung_se171710.Activity.ProductDetailActiv
 import com.company.plantshop_nguyentiendung_se171710.Model.ProductDomain;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ViewholderPopularBinding;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder> {
@@ -49,12 +50,13 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     }
 
     private void bindProductDetails(Viewholder holder, ProductDomain product) {
+        DecimalFormat formatter = new DecimalFormat("#,###");
         holder.binding.titleTxt.setText(product.getTitle());
         holder.binding.reviewTxt.setText(String.valueOf(product.getReview()));
-        holder.binding.priceTxt.setText(String.format("$%s", product.getPrice()));
-        holder.binding.ratingTxt.setText(String.format("(%s)", product.getRating()));
-        holder.binding.oldPriceTxt.setText(String.format("$%s", product.getOldPrice()));
+        holder.binding.priceTxt.setText(String.format("%sđ", formatter.format(product.getPrice())));
+        holder.binding.oldPriceTxt.setText(String.format("%sđ", formatter.format(product.getOldPrice())));
         holder.binding.oldPriceTxt.setPaintFlags(holder.binding.oldPriceTxt.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.binding.ratingTxt.setText(String.format("(%s)", product.getRating()));
         holder.binding.ratingBar.setRating((float) product.getRating());
     }
 

@@ -14,6 +14,7 @@ import com.company.plantshop_nguyentiendung_se171710.Utils.ChangeNumberItemsList
 import com.company.plantshop_nguyentiendung_se171710.Utils.ManagmentCart;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ViewholderCartBinding;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
@@ -37,9 +38,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
 
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+        DecimalFormat formatter = new DecimalFormat("#,###");
         holder.binding.titleTxt.setText(listItemSelected.get(position).getTitle());
-        holder.binding.feeEachItem.setText("$" + listItemSelected.get(position).getPrice());
-        holder.binding.totalEachItem.setText("$" + Math.round((listItemSelected.get(position).getNumberInCart() * listItemSelected.get(position).getPrice())));
+
+        holder.binding.feeEachItem.setText(formatter.format(listItemSelected.get(position).getPrice()) + " VND");
+        double totalItemPrice = listItemSelected.get(position).getNumberInCart() * listItemSelected.get(position).getPrice();
+        holder.binding.totalEachItem.setText(formatter.format(Math.round(totalItemPrice)) + " VND");
         holder.binding.numberItemTxt.setText(String.valueOf(listItemSelected.get(position).getNumberInCart()));
 
         Glide.with(holder.itemView.getContext())
