@@ -27,4 +27,7 @@
     <string name="title">title</string>
     <string name="_123">$123</string>
     <string name="_1">1</string>
+    <string name="name">Name</string>
+    <string name="product_description">Product description</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>

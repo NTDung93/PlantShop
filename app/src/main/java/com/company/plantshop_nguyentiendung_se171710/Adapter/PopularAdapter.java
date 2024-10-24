@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.company.plantshop_nguyentiendung_se171710.Activity.ProductDetailActivity;
 import com.company.plantshop_nguyentiendung_se171710.Model.ProductDomain;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ViewholderPopularBinding;
 
@@ -65,9 +66,9 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     }
 
     private void openDetailActivity(ProductDomain product) {
-//        Intent intent = new Intent(context, DetailActivity.class);
-//        intent.putExtra("object", product);
-//        context.startActivity(intent);
+        Intent intent = new Intent(context, ProductDetailActivity.class);
+        intent.putExtra("object", product);
+        context.startActivity(intent);
     }
 
     public static class Viewholder extends RecyclerView.ViewHolder {
