@@ -7,11 +7,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 
+import com.company.plantshop_nguyentiendung_se171710.Adapter.CategoryAdapter;
+import com.company.plantshop_nguyentiendung_se171710.Adapter.PopularAdapter;
 import com.company.plantshop_nguyentiendung_se171710.Adapter.SliderAdapter;
+import com.company.plantshop_nguyentiendung_se171710.Model.CategoryDomain;
+import com.company.plantshop_nguyentiendung_se171710.Model.ProductDomain;
 import com.company.plantshop_nguyentiendung_se171710.Model.SliderItems;
 import com.company.plantshop_nguyentiendung_se171710.R;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ActivityMainBinding;
@@ -44,8 +50,8 @@ public class MainActivity extends BaseActivity {
         setupLoginOrLogoutButton();
 
         initBanner();
-//        initCategory();
-//        initPopular();
+        initCategory();
+        initPopular();
 //        bottomNavigation();
     }
 
@@ -124,5 +130,62 @@ public class MainActivity extends BaseActivity {
 
         binding.viewPagerSlider.setPageTransformer(compositePageTransformer);
 
+    }
+
+    private void initCategory() {
+        DatabaseReference myref = database.getReference("Category");
+        binding.progressBarCategories.setVisibility(View.VISIBLE);
+
+        ArrayList<CategoryDomain> items = new ArrayList<>();
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
+                        items.add(issue.getValue(CategoryDomain.class));
+                    }
+                    if (!items.isEmpty()) {
+                        binding.recyclerViewCategories.setLayoutManager(new LinearLayoutManager(
+                                MainActivity.this, LinearLayoutManager.HORIZONTAL, false));
+                        binding.recyclerViewCategories.setAdapter(new CategoryAdapter(items));
+                        binding.recyclerViewCategories.setNestedScrollingEnabled(true);
+                    }
+                    binding.progressBarCategories.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void initPopular() {
+        DatabaseReference myref = database.getReference("Items");
+        binding.progressBarPopular.setVisibility(View.VISIBLE);
+        ArrayList<ProductDomain> items = new ArrayList<>();
+
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot issue : snapshot.getChildren()) {
+                        items.add(issue.getValue(ProductDomain.class));
+                    }
+                    if (!items.isEmpty()) {
+                        binding.recyclerViewPopular.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+                        binding.recyclerViewPopular.setAdapter(new PopularAdapter(items));
+                        binding.recyclerViewPopular.setNestedScrollingEnabled(true);
+                    }
+                    binding.progressBarPopular.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

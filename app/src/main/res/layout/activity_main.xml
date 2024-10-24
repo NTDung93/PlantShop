@@ -39,7 +39,7 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -149,7 +149,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:text="@string/plant_categories"
-                android:textColor="@color/black"
+                android:textColor="@color/darkGreen"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -158,7 +158,7 @@
                 android:layout_height="match_parent">
 
                 <ProgressBar
-                    android:id="@+id/progressBar3"
+                    android:id="@+id/progressBarCategories"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/popular_plants"
-                    android:textColor="@color/black"
+                    android:textColor="@color/darkGreen"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -202,7 +202,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="See all"
-                    android:textColor="@color/green" />
+                    android:textColor="@color/darkGreen" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -232,12 +232,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

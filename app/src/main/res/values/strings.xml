@@ -23,4 +23,8 @@
     <string name="login_btn">Login</string>
     <string name="logout_btn">Logout</string>
     <string name="welcome">"Welcome, "</string>
+    <string name="_5">(5)</string>
+    <string name="title">title</string>
+    <string name="_123">$123</string>
+    <string name="_1">1</string>
 </resources>

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.plantshop_nguyentiendung_se171710.databinding.ActivityIntroBinding;
 
-public class IntroActivity extends AppCompatActivity {
+public class IntroActivity extends BaseActivity {
 
     private ActivityIntroBinding binding;
 
