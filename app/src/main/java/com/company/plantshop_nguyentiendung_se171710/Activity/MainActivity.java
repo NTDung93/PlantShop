@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
         initBanner();
         initCategory();
         initPopular();
-//        bottomNavigation();
+        bottomNavigation();
     }
 
     private void initializeFirebaseAuth() {
@@ -87,10 +87,16 @@ public class MainActivity extends BaseActivity {
     }
 
     private void handleLoginOrLogout() {
+        if (user == null) {
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
         if (user != null) {
             auth.signOut();
         }
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), IntroActivity.class);
         startActivity(intent);
         finish();
     }
@@ -187,5 +193,9 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+    }
+
+    private void bottomNavigation() {
+        binding.cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
     }
 }

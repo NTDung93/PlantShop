@@ -2,20 +2,11 @@ package com.company.plantshop_nguyentiendung_se171710.Activity;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.company.plantshop_nguyentiendung_se171710.Adapter.ColorAdapter;
-import com.company.plantshop_nguyentiendung_se171710.Adapter.SizeAdapter;
 import com.company.plantshop_nguyentiendung_se171710.Adapter.SliderAdapter;
 import com.company.plantshop_nguyentiendung_se171710.Model.ProductDomain;
 import com.company.plantshop_nguyentiendung_se171710.Model.SliderItems;
-import com.company.plantshop_nguyentiendung_se171710.R;
 import com.company.plantshop_nguyentiendung_se171710.Utils.ManagmentCart;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ActivityProductDetailBinding;
 
@@ -87,7 +78,7 @@ public class ProductDetailActivity extends BaseActivity {
         binding.descriptionTxt.setText(object.getDescription());
 
         binding.AddtoCartBtn.setOnClickListener(v -> {
-            object.setNumberinCart(numberOrder);
+            object.setNumberInCart(numberOrder);
             managmentCart.insertItem(object);
         });
 
