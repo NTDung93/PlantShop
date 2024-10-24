@@ -30,4 +30,6 @@
     <string name="name">Name</string>
     <string name="product_description">Product description</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="notification_text">Notification Text</string>
 </resources>
