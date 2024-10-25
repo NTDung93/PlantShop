@@ -1,9 +1,11 @@
 package com.company.plantshop_nguyentiendung_se171710.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -21,7 +23,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     GoogleMap gMap;
     FrameLayout map;
-    Button backBtn;
+    ImageView backBtn;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -40,15 +42,18 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             mapFragment.getMapAsync(this);
         }
 
-//        backBtn = findViewById(R.id.backBtn);
-//        backBtn.setOnClickListener(v -> finish());
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MapActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         this.gMap = googleMap;
 
-        LatLng mapHome = new LatLng(10.403356762179882, 107.18645022538028);
+        LatLng mapHome = new LatLng(10.87509926557682, 106.80032938042501);
         this.gMap.addMarker(new MarkerOptions().position(mapHome).title("Marker in my home"));
         this.gMap.moveCamera(CameraUpdateFactory.newLatLng(mapHome));
     }
