@@ -32,4 +32,7 @@
     <string name="add_to_cart">Add to cart</string>
     <string name="back_to_home">Back to Home</string>
     <string name="notification_text">Notification Text</string>
+    <string name="plants_management">Plants management</string>
+    <string name="chat">Chat</string>
+    <string name="add_plant">Add plant</string>
 </resources>

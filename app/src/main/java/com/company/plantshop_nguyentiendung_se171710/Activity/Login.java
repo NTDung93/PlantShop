@@ -95,6 +95,14 @@ public class Login extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(Login.this, "Login successfully.",
                                             Toast.LENGTH_SHORT).show();
+
+                                    if (email.contains("admin")) {
+                                        Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                        return;
+                                    }
+
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                     finish();
