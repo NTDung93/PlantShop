@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.company.plantshop_nguyentiendung_se171710.Model.SliderItems;
 import com.company.plantshop_nguyentiendung_se171710.R;
 
@@ -63,8 +65,11 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         }
 
         void setImage(SliderItems sliderItems) {
-            Glide.with(context)
+            int cornerRadius = 25; // in pixels
+
+            Glide.with(itemView.getContext())
                     .load(sliderItems.getUrl())
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(cornerRadius)))
                     .into(imageView);
         }
     }

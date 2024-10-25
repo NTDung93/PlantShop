@@ -11,12 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.company.plantshop_nguyentiendung_se171710.Activity.ProductDetailActivity;
 import com.company.plantshop_nguyentiendung_se171710.Model.ProductDomain;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ViewholderPopularBinding;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder> {
     private final ArrayList<ProductDomain> items;
@@ -61,9 +65,14 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
     }
 
     private void bindProductImage(Viewholder holder, String imageUrl) {
+        int cornerRadius = 25;
+
         Glide.with(context)
                 .load(imageUrl)
-                .transform(new CenterCrop())
+                .apply(new RequestOptions()
+                        .transform(new CenterCrop(),
+                                new RoundedCornersTransformation(cornerRadius, 0,
+                                        RoundedCornersTransformation.CornerType.TOP)))
                 .into(holder.binding.pic);
     }
 

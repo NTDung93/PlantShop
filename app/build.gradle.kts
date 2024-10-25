@@ -55,4 +55,9 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.2.2")
     implementation("com.squareup.okhttp3:okhttp:4.6.0")
     implementation("commons-codec:commons-codec:1.14")
+
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
+
+    implementation("jp.wasabeef:glide-transformations:4.3.0")
 }
