@@ -16,27 +16,28 @@
         android:theme="@style/Theme.Material3.Light"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.MapActivity"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar">
-        </activity>
-
-        <activity android:name=".Activity.PaymentNotification"
+            android:theme="@style/Theme.Material3.Light.NoActionBar"></activity>
+        <activity
+            android:name=".Activity.PaymentNotification"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Material3.Light.NoActionBar"></activity>
         <activity
             android:name=".Activity.CartActivity"
             android:exported="true"
             android:label="Merchant Demo"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Material3.Light.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="app"
                     android:scheme="demozpdk" />
@@ -63,7 +64,7 @@
         <activity
             android:name=".Activity.Login"
             android:exported="true"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name=".Activity.MainActivity"
             android:exported="true"
