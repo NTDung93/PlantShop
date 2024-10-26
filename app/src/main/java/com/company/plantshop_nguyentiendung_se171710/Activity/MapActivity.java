@@ -18,9 +18,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
-
+    FirebaseAuth auth;
+    FirebaseUser user;
     GoogleMap gMap;
     FrameLayout map;
     ImageView backBtn;
@@ -31,6 +34,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_map);
+
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         map = findViewById(R.id.map);
 
@@ -44,8 +50,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         backBtn = findViewById(R.id.backBtn);
         backBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MapActivity.this, MainActivity.class);
-            startActivity(intent);
+            if (user != null && user.getEmail().contains("admin")) {
+                startActivity(new Intent(MapActivity.this, AdminActivity.class));
+                finish();
+            } else {
+                startActivity(new Intent(MapActivity.this, MainActivity.class));
+                finish();
+            }
         });
     }
 

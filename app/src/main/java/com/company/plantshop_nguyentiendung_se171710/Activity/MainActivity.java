@@ -1,5 +1,7 @@
 package com.company.plantshop_nguyentiendung_se171710.Activity;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -202,5 +204,6 @@ public class MainActivity extends BaseActivity {
     private void bottomNavigation() {
         binding.cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
         binding.mapBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MapActivity.class)));
+        binding.chatBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ChatActivity.class)));
     }
 }

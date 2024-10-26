@@ -50,6 +50,7 @@ public class AdminActivity extends BaseActivity {
         setupViews();
         displayUserInfo();
         setupLoginOrLogoutButton();
+        bottomNavigation();
 
         initPopular();
 
@@ -333,5 +334,10 @@ public class AdminActivity extends BaseActivity {
         });
         productList.remove(position);
         popularAdapter.notifyDataSetChanged();
+    }
+
+    private void bottomNavigation() {
+        binding.mapBtn.setOnClickListener(v -> startActivity(new Intent(AdminActivity.this, MapActivity.class)));
+        binding.chatBtn.setOnClickListener(v -> startActivity(new Intent(AdminActivity.this, ChatActivity.class)));
     }
 }
