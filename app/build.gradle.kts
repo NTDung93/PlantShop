@@ -60,4 +60,6 @@ dependencies {
     implementation(libs.play.services.location)
 
     implementation("jp.wasabeef:glide-transformations:4.3.0")
+
+    implementation(libs.firebase.firestore)
 }

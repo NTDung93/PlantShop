@@ -69,6 +69,10 @@ public class MainActivity extends BaseActivity {
         if (user == null) {
             textView.setText(R.string.welcome_to_plant_shop);
             loginOrLogoutBtn.setText(R.string.login_btn);
+        } else if (user != null && user.getEmail().contains("admin")) {
+            auth.signOut();
+            textView.setText(R.string.welcome_to_plant_shop);
+            loginOrLogoutBtn.setText(R.string.login_btn);
         } else {
             int index = Objects.requireNonNull(user.getEmail()).indexOf('@');
             String name = user.getEmail().substring(0, index);
