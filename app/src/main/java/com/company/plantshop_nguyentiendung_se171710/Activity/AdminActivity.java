@@ -59,7 +59,9 @@ public class AdminActivity extends BaseActivity {
     public void showAddUpdateDialog(ProductDomain product, boolean isUpdate) {
         View dialogView = LayoutInflater.from(this).inflate(R.layout.popup_add_product, null);
 
-        // Initialize EditTexts
+        String oldName = product.getTitle();
+        String oldDescription = product.getDescription();
+
         EditText etName = dialogView.findViewById(R.id.etTitleAdmin);
         EditText etDescription = dialogView.findViewById(R.id.etDescriptionAdmin);
         EditText etPrice = dialogView.findViewById(R.id.etPriceAdmin);
@@ -70,7 +72,6 @@ public class AdminActivity extends BaseActivity {
 
         String REQUIRE = "Required";
 
-        // Populate fields if updating
         if (isUpdate && product != null) {
             etName.setText(product.getTitle());
             etDescription.setText(product.getDescription());
@@ -130,7 +131,6 @@ public class AdminActivity extends BaseActivity {
                     double rating = Double.parseDouble(ratingStr);
 
                     if (isUpdate && product != null) {
-                        // Update product details
                         product.setTitle(name);
                         product.setDescription(description);
                         product.setPrice(price);
@@ -141,20 +141,29 @@ public class AdminActivity extends BaseActivity {
                         picUrl.add(imageUrl);
                         product.setPicUrl(picUrl);
 
-                        // Update Firebase
-                        myref.child(product.getTitle()).setValue(product)
-                                .addOnSuccessListener(aVoid -> {
-                                    int index = productList.indexOf(product);
-                                    if (index != -1) {
-                                        productList.set(index, product);
-                                        popularAdapter.notifyItemChanged(index);
+                        myref.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot issue : snapshot.getChildren()) {
+                                    ProductDomain productDomain = issue.getValue(ProductDomain.class);
+                                    if (productDomain != null && productDomain.getTitle().equals(oldName) && productDomain.getDescription().equals(oldDescription)) {
+                                        myref.child(issue.getKey()).setValue(product);
+                                        int index = productList.indexOf(product);
+                                        if (index != -1) {
+                                            productList.set(index, product);
+                                            popularAdapter.notifyItemChanged(index);
+                                        }
+                                        dialog.dismiss();
+                                        Toast.makeText(AdminActivity.this, "Product updated successfully.", Toast.LENGTH_SHORT).show();
                                     }
-                                    dialog.dismiss();
-                                    Toast.makeText(AdminActivity.this, "Product updated successfully.", Toast.LENGTH_SHORT).show();
-                                })
-                                .addOnFailureListener(e -> {
-                                    Toast.makeText(AdminActivity.this, "Update failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     } else {
                         // Create a new product
                         ProductDomain newProduct = new ProductDomain();
@@ -261,7 +270,7 @@ public class AdminActivity extends BaseActivity {
 
         productList = new ArrayList<>();
 
-        popularAdapter = new PopularAdapter((ArrayList<ProductDomain>) productList);
+        popularAdapter = new PopularAdapter((ArrayList<ProductDomain>) productList, this, true);
 
         binding.recyclerViewPopular.setLayoutManager(new GridLayoutManager(AdminActivity.this, 2));
         binding.recyclerViewPopular.setAdapter(popularAdapter);

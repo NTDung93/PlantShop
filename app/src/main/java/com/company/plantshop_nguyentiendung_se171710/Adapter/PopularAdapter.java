@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.company.plantshop_nguyentiendung_se171710.Activity.AdminActivity;
 import com.company.plantshop_nguyentiendung_se171710.Activity.ProductDetailActivity;
 import com.company.plantshop_nguyentiendung_se171710.Model.ProductDomain;
 import com.company.plantshop_nguyentiendung_se171710.databinding.ViewholderPopularBinding;
@@ -25,9 +25,17 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewholder> {
     private final ArrayList<ProductDomain> items;
     private Context context;
+    private AdminActivity adminActivity;
+    private boolean isAdmin = false;
 
     public PopularAdapter(ArrayList<ProductDomain> items) {
         this.items = items;
+    }
+
+    public PopularAdapter(ArrayList<ProductDomain> items, AdminActivity adminActivity, boolean isAdmin) {
+        this.items = items;
+        this.adminActivity = adminActivity;
+        this.isAdmin = isAdmin;
     }
 
     @NonNull
@@ -45,7 +53,11 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         bindProductDetails(holder, product);
         bindProductImage(holder, product.getPicUrl().get(0));
 
-        holder.itemView.setOnClickListener(v -> openDetailActivity(product));
+        if (isAdmin) {
+            holder.itemView.setOnClickListener(v -> adminActivity.showAddUpdateDialog(product, true));
+        } else {
+            holder.itemView.setOnClickListener(v -> openDetailActivity(product));
+        }
     }
 
     @Override
