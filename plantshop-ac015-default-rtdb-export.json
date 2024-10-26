@@ -1,0 +1,134 @@
+{
+  "Banner": [
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/banner%2F2.png?alt=media&token=25a34daa-d0d8-49bc-9ad6-06b22a6980cf"
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/banner%2F1.png?alt=media&token=4ca2aa1d-aae9-40e2-bf24-5613283a986a"
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/banner%2F4.png?alt=media&token=2704d8d4-04d4-4d0d-9713-8dbd070c175f"
+    },
+    {
+      "url": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/banner%2F3.png?alt=media&token=af2eb573-92cd-427d-ae14-63fc608f5dc2"
+    }
+  ],
+  "Category": [
+    {
+      "id": 0,
+      "picUrl": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/on-desk.webp?alt=media&token=38c5ee61-61fe-4684-9087-71c24fa9ba8b",
+      "title": "Để bàn"
+    },
+    {
+      "id": 1,
+      "picUrl": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/in-house.webp?alt=media&token=305e21ec-5e8c-42b2-8109-fbb9ddc39e3e",
+      "title": "Nhà"
+    },
+    {
+      "id": 2,
+      "picUrl": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/ban-cong.webp?alt=media&token=ffd7afff-16b8-45db-b72e-2b2d30f55f37",
+      "title": "Sân"
+    },
+    {
+      "id": 3,
+      "picUrl": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/qua-tang.webp?alt=media&token=299c7e13-f445-42ae-a5f5-ed87a78d0a2a",
+      "title": "Quà tặng"
+    },
+    {
+      "id": 4,
+      "picUrl": "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/sen-da.webp?alt=media&token=b8c817c0-9835-4418-b6a2-57d4c8c2843e",
+      "title": "Sen đá"
+    }
+  ],
+  "Items": [
+    {
+      "description": "Cây trầu bà neon (Epipremnum aureum \"Neon\") là một trong những loại cây cảnh trong nhà được ưa chuộng nhờ vẻ đẹp độc đáo và dễ chăm sóc. Lá cây có màu xanh vàng tươi sáng, mang đến cảm giác tươi mới và hiện đại cho không gian sống. Loại cây này có thể sống tốt trong môi trường thiếu sáng và không cần ánh sáng mặt trời trực tiếp, rất phù hợp để trang trí trong văn phòng, phòng khách hay phòng ngủ. Trầu bà neon còn có khả năng thanh lọc không khí, giúp loại bỏ các chất độc hại trong nhà. Cây phát triển nhanh chóng, có thể trồng trong chậu hoặc treo.",
+      "oldPrice": 12,
+      "picUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/trau-ba-neon-desk.png?alt=media&token=dbcec136-fc28-4d37-bac6-9ff20e10ea47"
+      ],
+      "price": 150000,
+      "rating": 4.7,
+      "review": 25,
+      "title": "Trầu bà Neon"
+    },
+    {
+      "description": "Cây phát tài Úc (Dracaena Australis) là một loại cây cảnh nổi bật với lá dài, mảnh và xanh bóng mượt, thường được sử dụng để trang trí trong nhà hay văn phòng. Loại cây này không chỉ có vẻ ngoài ấn tượng mà còn dễ chăm sóc, có khả năng chịu hạn tốt và không yêu cầu tưới nước thường xuyên. Cây phát tài Úc thích nghi tốt với nhiều điều kiện ánh sáng, từ ánh sáng tự nhiên đến ánh sáng yếu, vì vậy rất phù hợp cho những không gian ít ánh sáng. Về mặt phong thủy, cây mang ý nghĩa may mắn, tài lộc và thịnh vượng, là lựa chọn tuyệt vời để mang lại năng lượng tích cực cho không gian sống.",
+      "oldPrice": 11,
+      "picUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/phat-tai-uc.png?alt=media&token=3ae83bd4-fca6-4941-b982-b63ee5c92cb9"
+      ],
+      "price": 200000,
+      "rating": 4.2,
+      "review": 30,
+      "title": "Phát tài Úc"
+    },
+    {
+      "description": "Cây thanh lam (Philodendron bipinnatifidum) là một loại cây cảnh ấn tượng với lá xanh đậm, xẻ thùy rõ rệt và đẹp mắt, tạo cảm giác sang trọng và hiện đại cho không gian. Cây có khả năng phát triển tốt trong môi trường ít ánh sáng, rất thích hợp để trồng trong nhà hoặc văn phòng. Một trong những ưu điểm của cây thanh lam là khả năng lọc không khí, giúp loại bỏ các chất độc hại, mang lại bầu không khí trong lành hơn. Với hình dáng độc đáo và kích thước vừa phải, cây thường được sử dụng để trang trí các khu vực như phòng khách, hành lang hoặc ban công, tạo nên vẻ tươi mát, thoải mái cho không gian sống.",
+      "oldPrice": 10,
+      "picUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/thanh-lam-on-floor.png?alt=media&token=557ffb7a-21b8-4ccf-996c-82a7a716d275"
+      ],
+      "price": 250000,
+      "rating": 4.8,
+      "review": 40,
+      "title": "Thanh lam"
+    },
+    {
+      "description": "Cây đế vương vàng (Philodendron Imperial Golden) là một trong những loại cây cảnh nổi bật nhờ vào những chiếc lá to, dày và có màu vàng sáng rực rỡ, tạo nên vẻ đẹp sang trọng và ấn tượng cho không gian. Đây là loại cây dễ chăm sóc, có khả năng chịu bóng tốt, rất phù hợp với việc trang trí nội thất như phòng khách, văn phòng hay sảnh lớn. Bên cạnh vai trò làm đẹp, cây đế vương vàng còn có khả năng thanh lọc không khí, giúp không gian trở nên trong lành và tươi mát hơn. Theo phong thủy, cây này mang ý nghĩa tượng trưng cho sự quyền uy, thành công và thịnh vượng, là lựa chọn lý tưởng cho những ai mong muốn thu hút tài lộc và may mắn.",
+      "oldPrice": 15,
+      "picUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/de-vuong-vang-on-floor.png?alt=media&token=305c21c4-cb91-4767-96c5-7b4db26d8ba7"
+      ],
+      "price": 170000,
+      "rating": 4.3,
+      "review": 18,
+      "title": "Đế vương vàng"
+    },
+    {
+      "description": "Terrarium \"Happy Garden\" là một tiểu cảnh nhỏ xinh với chú thỏ trắng đáng yêu đang tươi cười, tạo điểm nhấn giữa những nhành cây trầu bà xanh mướt. Lá trầu bà hình trái tim mềm mại, xanh tươi, góp phần mang lại không gian tràn đầy sức sống và sự tươi mới. Sự kết hợp giữa chú thỏ và cây cối tạo nên một cảnh quan dễ thương, gợi lên cảm giác yên bình và thư giãn. Terrarium này không chỉ giúp làm đẹp không gian mà còn mang đến sự nhẹ nhàng, bình yên cho tâm hồn, rất phù hợp để đặt trên bàn làm việc hoặc trong góc phòng yêu thích.",
+      "oldPrice": 18,
+      "picUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/happy-garden-terrarium.png?alt=media&token=1f2cf13b-f9c9-4a16-b1d8-aa9c36a69270"
+      ],
+      "price": 300000,
+      "rating": 4.2,
+      "review": 21,
+      "title": "Happy garden"
+    },
+    {
+      "description": "Terrarium \"Sweet Couple\" là một tác phẩm nghệ thuật tinh tế, được tạo nên từ lớp thủy tinh nhập khẩu sang trọng, bao quanh một hệ thực vật đa dạng, xanh mát. Điểm nhấn nổi bật của tiểu cảnh là hình ảnh cặp ông bà lão đang ngồi mỉm cười, nhìn nhau đầy yêu thương và trìu mến. Cảnh quan này không chỉ gợi lên sự ấm áp và hạnh phúc, mà còn mang thông điệp về một tình yêu bền vững, đẹp đẽ giữa khu vườn xanh tươi. \"Sweet Couple\" là lựa chọn lý tưởng để trang trí, mang lại sự nhẹ nhàng, bình yên và lãng mạn cho không gian sống.",
+      "numberInCart": 0,
+      "oldPrice": 20,
+      "picUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/plantshop-ac015.appspot.com/o/sweet-couple-terrarium.png?alt=media&token=f1c8f429-bc64-4a94-902a-29679bede14e"
+      ],
+      "price": 310000,
+      "rating": 4.7,
+      "review": 35,
+      "title": "Sweet couple"
+    }
+  ],
+  "messages": {
+    "-OA8VTtxt-gPAAcAkPBT": {
+      "message": "hello",
+      "senderId": "OqqX2mJTtjVS5ad47TyYENxPRsk2",
+      "senderRole": "user"
+    },
+    "-OA8VZC_tqb4NqCxPUsQ": {
+      "message": "hiii",
+      "senderId": "gYQMfguxwjSV2vv9MrOiiMK0DN02",
+      "senderRole": "admin"
+    },
+    "-OA8WO-bH8p_cKojECJV": {
+      "message": "are you oke??",
+      "senderId": "gYQMfguxwjSV2vv9MrOiiMK0DN02",
+      "senderRole": "admin"
+    },
+    "-OA8WWhbT8cHkDX4c5hQ": {
+      "message": "i'm finee",
+      "senderId": "OqqX2mJTtjVS5ad47TyYENxPRsk2",
+      "senderRole": "user"
+    }
+  }
+}
