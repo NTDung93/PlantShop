@@ -58,6 +58,13 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.Viewhold
         } else {
             holder.itemView.setOnClickListener(v -> openDetailActivity(product));
         }
+
+        if (isAdmin) {
+            holder.itemView.setOnLongClickListener(view -> {
+                adminActivity.showDeleteDialog(position);
+                return true;
+            });
+        }
     }
 
     @Override

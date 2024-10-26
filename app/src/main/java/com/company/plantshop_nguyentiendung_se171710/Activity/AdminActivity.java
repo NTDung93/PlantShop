@@ -59,9 +59,6 @@ public class AdminActivity extends BaseActivity {
     public void showAddUpdateDialog(ProductDomain product, boolean isUpdate) {
         View dialogView = LayoutInflater.from(this).inflate(R.layout.popup_add_product, null);
 
-        String oldName = product.getTitle();
-        String oldDescription = product.getDescription();
-
         EditText etName = dialogView.findViewById(R.id.etTitleAdmin);
         EditText etDescription = dialogView.findViewById(R.id.etDescriptionAdmin);
         EditText etPrice = dialogView.findViewById(R.id.etPriceAdmin);
@@ -131,6 +128,9 @@ public class AdminActivity extends BaseActivity {
                     double rating = Double.parseDouble(ratingStr);
 
                     if (isUpdate && product != null) {
+                        String oldName = product.getTitle();
+                        String oldDescription = product.getDescription();
+
                         product.setTitle(name);
                         product.setDescription(description);
                         product.setPrice(price);
@@ -165,7 +165,6 @@ public class AdminActivity extends BaseActivity {
                             }
                         });
                     } else {
-                        // Create a new product
                         ProductDomain newProduct = new ProductDomain();
                         newProduct.setTitle(name);
                         newProduct.setDescription(description);
@@ -301,4 +300,38 @@ public class AdminActivity extends BaseActivity {
         });
     }
 
+    public void showDeleteDialog(int position){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete plant")
+                .setMessage("Are you sure you want to delete this plant ?")
+                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    deleteItemInFirebase(position);
+                    dialog.dismiss();
+                })
+                .create()
+                .show();
+    }
+
+    public void deleteItemInFirebase(int position) {
+        ProductDomain deletedProduct = productList.get(position);
+        myref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot issue : snapshot.getChildren()) {
+                    ProductDomain productDomain = issue.getValue(ProductDomain.class);
+                    if (productDomain != null && productDomain.getTitle().equals(deletedProduct.getTitle()) && productDomain.getDescription().equals(deletedProduct.getDescription())) {
+                        myref.child(issue.getKey()).removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        productList.remove(position);
+        popularAdapter.notifyDataSetChanged();
+    }
 }
